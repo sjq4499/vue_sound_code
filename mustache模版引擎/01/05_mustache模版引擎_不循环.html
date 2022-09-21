@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="content"></div>
+  <script src="./mustache.js"></script>
+  <script>
+
+    let templateStr =
+      `<h1>
+       我买了一个{{thing}},好{{mood}}啊
+      </h1>`
+    var data = {
+      thing: "华为",
+      mood: '开心'
+    }
+    let domStr = Mustache.render(templateStr, data)
+
+    let content = document.getElementById('content')
+    content.innerHTML = domStr
+  </script>
+</body>
+
+</html>
