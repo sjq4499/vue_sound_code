@@ -267,8 +267,9 @@
       throw new Error(
         'Unclosed section "' + openSection[1] + '" at ' + scanner.pos
       );
-
-    return nestTokens(squashTokens(tokens));
+    let tookens = nestTokens(squashTokens(tokens));
+    console.log(tookens, 'tookens');
+    return tookens;
   }
 
   /**
