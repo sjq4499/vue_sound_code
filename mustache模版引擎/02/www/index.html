@@ -15,9 +15,27 @@
 
     let templateStr =
       `我买了一个{{thing}},好{{mood}}啊`
+    templateStr =
+      ` <ul>
+      {{#arr}}
+        <li>
+          <div class="hd">{{name}} 基本信息</div>
+          <div class="bd">
+            <p>姓名：{{name}} </p>
+            <p>年龄：{{age}} </p>
+            <p>性别：{{sex}} </p>
+          </div>
+        </li>
+      {{/arr}}
+    </ul>`
     var data = {
       thing: "华为",
-      mood: '开心'
+      mood: '开心',
+      arr: [
+        { name: '小明', age: 12, sex: '男' },
+        { name: '小红', age: 11, sex: '女' },
+        { name: '小qiang', age: 13, sex: '男' }
+      ]
     }
     templateEngine.render(templateStr, data)
   </script>
