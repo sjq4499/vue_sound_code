@@ -1,8 +1,9 @@
 import Scanner from './Scanner';
+import nestTokens from './nestTokens';
 
-// 将模版字符串变为tookens数组
+// 将模版字符串变为tokens数组
 export default function parseTemplateToTokens(templateStr) {
-  var tookens = [];
+  var tokens = [];
   // 创建扫描器
   var scanner = new Scanner(templateStr);
   let words;
@@ -12,7 +13,7 @@ export default function parseTemplateToTokens(templateStr) {
     words = scanner.scanUtil('{{');
     if (words !== '') {
       // 存起来
-      tookens.push(['text', words]);
+      tokens.push(['text', words]);
     }
     // 过双大括号
     scanner.scan('{{');
@@ -26,18 +27,20 @@ export default function parseTemplateToTokens(templateStr) {
       switch (words[0]) {
         case '#':
           // 从1开始 因为首字符是#
-          tookens.push(['#', words.substring(1)]);
+          tokens.push(['#', words.substring(1)]);
           break;
         case '/':
           // 从1开始 因为首字符是/
-          tookens.push(['/', words.substring(1)]);
+          tokens.push(['/', words.substring(1)]);
           break;
         default:
-          tookens.push(['name', words]);
+          tokens.push(['name', words]);
       }
     }
     // 过双大括号
     scanner.scan('}}');
   }
-  return tookens;
+
+  // 返回折叠收集的tokens
+  return nestTokens(tokens);
 }
