@@ -10,12 +10,13 @@
 
 <body>
   hello word!
+  <div id="app"></div>
   <script src="/sun/build.js"></script>
   <script>
 
     let templateStr =
       `我买了一个{{thing}},好{{mood}}啊`
-    templateStr =
+    let templateStr1 =
       ` <ul>
       {{#arr}}
         <li>
@@ -29,7 +30,7 @@
       {{/arr}}
     </ul>`
 
-    templateStr = `<ul>
+    let templateStr2 = `<ul>
         {{#arr}}
           <li>
             <div class="hd">{{name}} 的爱好</div>
@@ -42,6 +43,14 @@
           </li>
         {{/arr}}
       </ul>`
+
+    let templateStr3 = `<ul>
+        {{#arr1}}
+          <li>
+           {{.}}
+          </li>
+        {{/arr1}}
+      </ul>`
     var data = {
       thing: "华为",
       mood: '开心',
@@ -49,9 +58,16 @@
         { name: '小明', age: 12, sex: '男', hobbies: ['打架', '游戏'] },
         { name: '小红', age: 11, sex: '女', hobbies: ['吃', '喝', '睡'] },
         { name: '小qiang', age: 13, sex: '男', hobbies: ['躺平'] }
-      ]
+      ],
+      arr1: ['苹果', '香蕉', '波路']
     }
-    templateEngine.render(templateStr, data)
+    let domStr = ''
+    domStr += templateEngine.render(templateStr, data)
+    domStr += templateEngine.render(templateStr1, data)
+    domStr += templateEngine.render(templateStr2, data)
+    domStr += templateEngine.render(templateStr3, data)
+    let app = document.getElementById('app')
+    app.innerHTML = domStr
   </script>
 </body>
 
