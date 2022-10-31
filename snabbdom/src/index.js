@@ -12,15 +12,23 @@ var myVnode1 = h(
   '孙孙孙'
 );
 
-patch(container, myVnode1);
-
 // var myVnode2 = h('div', { class: { box: true, box1: false } }, '我是一个盒子');
-var myVnode4 = h('div', {}, [
+var myVnode4 = h('ul', {}, [
   h('li', {}, 'a'),
   h('li', {}, 'b'),
   h('li', {}, 'c'),
 ]);
+var myVnode5 = h('ul', {}, [
+  h('li', {}, 'a'),
+  h('li', {}, 'b'),
+  h('li', {}, 'c'),
+  h('li', {}, 'd'),
+]);
+patch(container, myVnode4);
 
+btn.onclick = () => {
+  patch(myVnode4, myVnode5);
+};
 // console.log(myVnode4, 'myVnode4');
 
 // var myVnode3 = h('ul', [
