@@ -12,7 +12,7 @@ var myVnode1 = h(
   '孙孙孙'
 );
 
-// var myVnode2 = h('div', { class: { box: true, box1: false } }, '我是一个盒子');
+var myVnode2 = h('ul', { class: { box: true, box1: false } }, '我是一个盒子');
 var myVnode4 = h('ul', {}, [
   h('li', {}, 'a'),
   h('li', {}, 'b'),
