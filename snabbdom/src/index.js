@@ -14,15 +14,17 @@ var myVnode1 = h(
 
 var myVnode2 = h('ul', { class: { box: true, box1: false } }, '我是一个盒子');
 var myVnode4 = h('ul', {}, [
-  h('li', {}, 'a'),
-  h('li', {}, 'b'),
-  h('li', {}, 'c'),
+  h('li', { key: 'a' }, 'a'),
+  h('li', { key: 'b' }, 'b'),
+  h('li', { key: 'c' }, 'c'),
 ]);
 var myVnode5 = h('ul', {}, [
-  h('li', {}, 'a'),
-  h('li', {}, 'b'),
-  h('li', {}, 'c'),
-  h('li', {}, 'd'),
+  h('li', { key: 'a' }, 'a'),
+  h('li', { key: 'b' }, 'b'),
+  h('li', { key: 'e' }, 'e'),
+  h('li', { key: 'c' }, 'c'),
+  h('li', { key: 'd' }, 'd'),
+  h('li', { key: 'f' }, 'f'),
 ]);
 patch(container, myVnode4);
 
