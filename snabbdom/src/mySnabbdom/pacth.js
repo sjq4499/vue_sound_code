@@ -13,11 +13,12 @@ export default function (oldVnode, newVnode) {
       undefined,
       oldVnode
     );
+    console.log(oldVnode, 'oldVnode');
   }
   // 判断oldVnode和newNode是不是同一个节点
   if (oldVnode.key == newVnode.key && oldVnode.sel == newVnode.sel) {
     console.log('是一个节点');
-    patchVnode(newVnode, oldVnode);
+    patchVnode(oldVnode, newVnode);
   } else {
     console.log('不是同一个节点，暴力插入一个新的节点，删除旧的');
     let newVnodeElm = creatElement(newVnode);

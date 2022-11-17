@@ -17,15 +17,18 @@ var myVnode4 = h('ul', {}, [
   h('li', { key: 'a' }, 'a'),
   h('li', { key: 'b' }, 'b'),
   h('li', { key: 'c' }, 'c'),
+  h('li', { key: 'e' }, 'e'),
 ]);
 var myVnode5 = h('ul', {}, [
-  h('li', { key: 'a' }, 'a'),
+  h('li', { key: 'z' }, 'z'),
+  h('li', { key: 'a' }, 'aaa'),
   h('li', { key: 'b' }, 'b'),
   h('li', { key: 'e' }, 'e'),
-  h('li', { key: 'c' }, 'c'),
   h('li', { key: 'd' }, 'd'),
-  h('li', { key: 'f' }, 'f'),
+  // h('li', { key: 'f' }, 'f'),
+  h('li', { key: 'c' }, 'ccc'),
 ]);
+
 patch(container, myVnode4);
 
 btn.onclick = () => {
